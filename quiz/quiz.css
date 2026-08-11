@@ -1,0 +1,114 @@
+.quiz-main {
+  min-height: 60vh;
+  padding: 50px 0 80px;
+}
+
+.quiz-wrap {
+  max-width: 640px;
+}
+
+.progress-track {
+  height: 6px;
+  background: #E4DFD1;
+  border-radius: 4px;
+  margin-bottom: 40px;
+  overflow: hidden;
+}
+.progress-fill {
+  height: 100%;
+  width: 0%;
+  background: var(--amber);
+  transition: width 0.25s ease;
+}
+
+.quiz-screen h1, .quiz-screen h2 {
+  font-size: clamp(1.5rem, 4vw, 2.1rem);
+  margin-bottom: 16px;
+}
+
+.quiz-lede {
+  color: #4A4A44;
+  font-size: 1.05rem;
+  margin-bottom: 28px;
+}
+
+.answer-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.answer-option {
+  text-align: left;
+  background: #fff;
+  border: 1px solid #E4DFD1;
+  border-radius: 8px;
+  padding: 16px 20px;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--charcoal);
+  cursor: pointer;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+.answer-option:hover {
+  border-color: var(--amber);
+  background: #FBF8F1;
+}
+
+.email-form {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+.email-form input {
+  flex: 1 1 260px;
+  padding: 14px 16px;
+  border: 1px solid #C9C3B0;
+  border-radius: 6px;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  background: #fff;
+  color: var(--charcoal);
+}
+.email-form input:focus {
+  outline: 2px solid var(--amber);
+  outline-offset: 1px;
+}
+
+.quiz-fineprint {
+  font-size: 0.85rem;
+  color: #7A7A70;
+}
+
+.leak-card {
+  background: var(--teal);
+  color: var(--cream);
+  border-radius: 10px;
+  padding: 28px 26px;
+  margin: 24px 0 32px;
+}
+.leak-card .pillar-tag {
+  color: var(--gold);
+}
+.leak-card h3 {
+  color: var(--cream);
+  font-size: 1.3rem;
+  margin: 8px 0 10px;
+}
+.leak-card p {
+  color: #D9D4C6;
+  font-size: 0.98rem;
+}
+
+.results-ctas {
+  justify-content: flex-start;
+}
+.quiz-body .btn-secondary {
+  border-color: var(--teal);
+  color: var(--teal);
+}
+.quiz-body .btn-secondary:hover {
+  border-color: var(--amber);
+  color: var(--amber);
+}

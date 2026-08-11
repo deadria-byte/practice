@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Restaurant Profit Leak Audit — Back of House Blueprint</title>
+<meta name="description" content="A free 2-minute audit that shows independent restaurant owners where they're most likely losing money in the back of house.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&family=Big+Shoulders:wght@700&family=Work+Sans:wght@400;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="quiz.css">
+</head>
+<body class="quiz-body">
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="logo" href="../index.html">
+      <span class="logo-line1">BACK OF HOUSE</span>
+      <span class="logo-line2">BLUEPRINT</span>
+    </a>
+  </div>
+</header>
+
+<main class="quiz-main">
+  <div class="wrap quiz-wrap">
+
+    <div class="progress-track" id="progress-track" hidden>
+      <div class="progress-fill" id="progress-fill"></div>
+    </div>
+
+    <!-- Screen 1: Intro -->
+    <section class="quiz-screen" id="screen-intro">
+      <p class="eyebrow">Free 2-minute audit</p>
+      <h1>The Restaurant Profit Leak Audit</h1>
+      <p class="quiz-lede">Answer 8 quick questions about how your back of house actually runs. We'll show you exactly where you're most likely losing money — and what to fix first.</p>
+      <button class="btn btn-primary" id="btn-start">Start the Audit</button>
+    </section>
+
+    <!-- Screen 2: Questions (built by quiz.js) -->
+    <section class="quiz-screen" id="screen-question" hidden>
+      <p class="eyebrow" id="question-count"></p>
+      <h2 id="question-text"></h2>
+      <div class="answer-list" id="answer-list"></div>
+    </section>
+
+    <!-- Screen 3: Email gate -->
+    <section class="quiz-screen" id="screen-email" hidden>
+      <p class="eyebrow">Almost done</p>
+      <h2>Where should we send your results?</h2>
+      <p class="quiz-lede">Enter your email to unlock your personalized Profit Leak Report.</p>
+      <form id="email-form" class="email-form">
+        <input type="email" id="email-input" placeholder="you@yourrestaurant.com" required>
+        <button class="btn btn-primary" type="submit">Unlock My Results</button>
+      </form>
+      <p class="quiz-fineprint">
+        <!-- TODO (Phase 1, Weeks 1-2): wire this form to Resend + the email nurture sequence once
+             domain warm-up, DKIM/DMARC/SPF, and CAN-SPAM setup are done. Right now this form does
+             not send the email anywhere — it only unlocks the on-screen result. -->
+        No spam. Just your results and a few practical tips.
+      </p>
+    </section>
+
+    <!-- Screen 4: Results -->
+    <section class="quiz-screen" id="screen-results" hidden>
+      <p class="eyebrow">Your results</p>
+      <h2 id="results-headline"></h2>
+      <p class="quiz-lede" id="results-summary"></p>
+
+      <div class="leak-card" id="leak-card">
+        <span class="pillar-tag" id="leak-tag"></span>
+        <h3 id="leak-title"></h3>
+        <p id="leak-body"></p>
+      </div>
+
+      <div class="hero-ctas results-ctas">
+        <a class="btn btn-primary" href="../index.html#pricing">See how Pro fixes this — $297/mo</a>
+        <a class="btn btn-secondary" href="#" id="btn-retake">Retake the audit</a>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p>AKR Operations · AKR Food and Beverage LLC</p>
+    <p class="footer-links"><a href="../index.html#pricing">Terms of Service</a> · <a href="../index.html#pricing">Privacy Policy</a></p>
+  </div>
+</footer>
+
+<script src="quiz.js"></script>
+</body>
+</html>
