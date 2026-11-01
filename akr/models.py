@@ -44,6 +44,7 @@ class Prospect:
     pe_rival_in_market: Optional[bool] = None
     residential: Optional[bool] = None
     owner_reachable: Optional[bool] = None
+    zip: str = ""
     owner_name: str = ""
     email: str = ""
     website: str = ""
@@ -85,6 +86,7 @@ def load_prospects(path):
                 pe_rival_in_market=_bool(r.get("pe_rival_in_market")),
                 residential=_bool(r.get("residential")),
                 owner_reachable=_bool(r.get("owner_reachable")),
+                zip=(r.get("zip") or "").strip(),
                 owner_name=(r.get("owner_name") or "").strip(),
                 email=(r.get("email") or "").strip(),
                 website=(r.get("website") or "").strip(),

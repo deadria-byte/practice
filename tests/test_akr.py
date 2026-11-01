@@ -51,6 +51,21 @@ class T(unittest.TestCase):
             res = run(DATA, d, "2026-12-01", postal="1 Main St, Louisville, KY 40202", audit_url_base="https://example.test/a")
             self.assertEqual(res["sendable"], res["audited"])
 
+    def test_mountain_zip_excluded(self):
+        p = self.by["d2"]; p.zip = "79901"
+        self.assertIn("Mountain time sliver, outside ET/CT", scoring.disqualify(p))
+        p.zip = "75201"
+        self.assertNotIn("Mountain time sliver, outside ET/CT", scoring.disqualify(p))
+
+    def test_budget_buckets_split_at_first_revenue(self):
+        from akr import budget
+        path = os.path.join(os.path.dirname(__file__), "..", "data", "budget_ledger.csv")
+        r = budget.report(path, "2026-12-01")
+        self.assertEqual(r["operating"]["planned"], 279)
+        self.assertEqual(r["pre_revenue"]["planned"], 391)
+        self.assertFalse(r["over_cap"])
+        self.assertTrue(budget.report(path)["pre_revenue"]["planned"] > 600)
+
 
 if __name__ == "__main__":
     unittest.main()

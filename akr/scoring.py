@@ -16,6 +16,8 @@ def disqualify(p):
     d = []
     if p.state not in config.BEACHHEAD_STATES:
         d.append("outside ET/CT beachhead")
+    if p.zip.startswith(config.MOUNTAIN_ZIP_PREFIXES.get(p.state, ("\0",))):
+        d.append("Mountain time sliver, outside ET/CT")
     if p.rating is not None and p.rating < 3.7:
         d.append("rating under 3.7 (fix operations first)")
     e = employees(p)
